@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Stephen &amp; Keeley — Rylands Farmhouse, Wilmslow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  html,body{margin:0;padding:0;background-color:#F7F4ED;color:#26332A;-webkit-font-smoothing:antialiased}
+  *{box-sizing:border-box}
+  a{color:#B08D3E;text-decoration:none}
+  a:hover{text-decoration:underline}
+  summary::-webkit-details-marker{display:none}
+  input::placeholder,textarea::placeholder{color:#A8A497}
+  input:focus,textarea:focus{outline:none;border-color:#B08D3E}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+  @keyframes lidOpen{0%{transform:rotateX(0deg)}100%{transform:rotateX(-178deg)}}
+  @keyframes cardRise{0%{transform:translateY(0) scale(.97);opacity:0}30%{opacity:1}100%{transform:translateY(-46%) scale(1);opacity:1}}
+  @keyframes ruleGrow{from{width:0}to{width:66px}}
+</style>
+</helmet>
+
+<sc-if value="{{ filmOn }}" hint-placeholder-val="{{ true }}">
+<x-import component-from-global-scope="film-intro" from="./film.js" greeting="{{ greeting }}" duration="34000" hint-size="100%,100%"></x-import>
+</sc-if>
+
+<div style="font-family:Karla,sans-serif;color:#26332A;background-image:linear-gradient(#F7F4ED,#F7F4ED);min-height:100vh">
+
+  <nav style="position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 26px;background-image:linear-gradient(rgba(247,244,237,.94),rgba(247,244,237,.94));border-bottom:1px solid #E2DCCC;backdrop-filter:blur(8px)">
+    <span style="font-family:'Cormorant Garamond',serif;font-size:21px;letter-spacing:2px">S <span style="color:#B08D3E">&amp;</span> K</span>
+    <div style="display:flex;gap:22px;flex-wrap:wrap;font-size:11px;letter-spacing:1.8px;text-transform:uppercase">
+      <a href="#rsvp" style="color:#3E5741">Reply</a>
+      <a href="#lineup" style="color:#767B70">The day</a>
+      <a href="#travel" style="color:#767B70">Travel</a>
+      <a href="#gifts" style="color:#767B70">Gifts</a>
+      <a href="#faq" style="color:#767B70">FAQ</a>
+      <a href="#photos" style="color:#767B70">Photos</a>
+    </div>
+  </nav>
+
+  <section id="hero" style="text-align:center;padding:80px 22px 74px;max-width:760px;margin:0 auto">
+    <div style="font-size:10.5px;letter-spacing:3.4px;text-transform:uppercase;color:#B08D3E;font-weight:500;margin-bottom:22px">Rylands Farmhouse · Wilmslow, Cheshire</div>
+    <h1 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(46px,11vw,80px);line-height:1.02;margin:0;letter-spacing:.5px">Stephen <span style="color:#B08D3E;font-style:italic;font-weight:400">&amp;</span> Keeley</h1>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(20px,4vw,26px);margin:22px 0 6px">Friday 9 April 2027</p>
+    <p style="color:#767B70;font-size:14.5px;margin:0">Guests arrive from 11:30am · Ceremony at twelve noon</p>
+    <sc-if value="{{ showCountdown }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex;justify-content:center;gap:30px;margin:38px 0 0;flex-wrap:wrap">
+        <sc-for list="{{ countdown }}" as="c" hint-placeholder-count="4">
+          <div style="min-width:56px">
+            <b style="display:block;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:32px;line-height:1">{{ c.n }}</b>
+            <span style="display:block;font-size:9.5px;letter-spacing:2.2px;text-transform:uppercase;color:#767B70;margin-top:6px">{{ c.label }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </sc-if>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:20px;margin-top:42px">
+      <a href="#rsvp" style="border:1px solid #B08D3E;background-image:linear-gradient(#B08D3E,#B08D3E);color:#FFFDF8;font-weight:500;font-size:11.5px;letter-spacing:2.4px;text-transform:uppercase;padding:16px 38px;border-radius:2px;text-decoration:none" style-hover="text-decoration:none;background-image:none;color:#B08D3E">Reply to our invitation</a>
+      <button onClick="{{ replay }}" style="border:none;background:transparent;color:#767B70;font-family:Karla,sans-serif;font-size:10.5px;letter-spacing:2.2px;text-transform:uppercase;cursor:pointer;padding:6px;border-bottom:1px solid #D8D1BF" style-hover="color:#B08D3E;border-color:#B08D3E">Replay the invitation</button>
+    </div>
+  </section>
+
+  <section id="rsvp" style="padding:10px 22px 84px">
+    <div style="max-width:620px;margin:0 auto">
+      <div style="text-align:center;margin-bottom:30px">
+        <div style="font-size:10.5px;letter-spacing:3.4px;text-transform:uppercase;color:#B08D3E;font-weight:500;margin-bottom:12px">Rsvp</div>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,6vw,40px);line-height:1.12;margin:0">{{ rsvpHeading }}</h2>
+        <div style="width:44px;height:1px;background:#B08D3E;margin:20px auto"></div>
+        <p style="color:#767B70;font-size:15px;line-height:1.7;margin:0">Please reply by 30 September 2026.</p>
+      </div>
+
+      <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+      <div style="background-image:linear-gradient(#FFFDF8,#FFFDF8);border:1px solid #E2DCCC;border-radius:2px;padding:30px 26px">
+        <sc-if value="{{ hasInvite }}" hint-placeholder-val="{{ true }}">
+          <div style="font-weight:500;font-size:11px;letter-spacing:1.8px;text-transform:uppercase;color:#767B70;margin-bottom:4px">Who's coming</div>
+          <sc-for list="{{ people }}" as="p" hint-placeholder-count="3">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:14px;border-top:1px solid #E2DCCC;padding:15px 0;flex-wrap:wrap">
+              <div style="font-family:'Cormorant Garamond',serif;font-size:22px;line-height:1.2">{{ p.name }}</div>
+              <div style="display:flex;gap:8px;flex-shrink:0">
+                <button onClick="{{ p.yes }}" style="{{ p.yesStyle }}">Yes</button>
+                <button onClick="{{ p.no }}" style="{{ p.noStyle }}">No</button>
+              </div>
+            </div>
+          </sc-for>
+        </sc-if>
+
+        <sc-if value="{{ noInvite }}" hint-placeholder-val="{{ false }}">
+          <div>
+            <div style="font-weight:500;font-size:11px;letter-spacing:1.8px;text-transform:uppercase;color:#767B70;margin-bottom:4px">Your name, and anyone with you</div>
+            <input ref="{{ namesRef }}" placeholder="e.g. Sam and Priya Ahmed" style="width:100%;font-family:Karla,sans-serif;font-size:16px;padding:12px 0;border:none;border-bottom:1px solid #D8D1BF;background:transparent;color:#26332A">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:20px">
+              <div style="font-family:'Cormorant Garamond',serif;font-size:22px;line-height:1.2">Can you join us?</div>
+              <div style="display:flex;gap:8px;flex-shrink:0">
+                <button onClick="{{ soloYes }}" style="{{ soloYesStyle }}">Yes</button>
+                <button onClick="{{ soloNo }}" style="{{ soloNoStyle }}">No</button>
+              </div>
+            </div>
+          </div>
+        </sc-if>
+
+        <div style="font-weight:500;font-size:11px;letter-spacing:1.8px;text-transform:uppercase;color:#767B70;margin:28px 0 2px">Dietary requirements</div>
+        <p style="color:#767B70;font-size:13.5px;line-height:1.6;margin:0 0 8px">Allergies or intolerances for the caterers. Leave blank if there's nothing.</p>
+        <textarea ref="{{ dietRef }}" rows="2" placeholder="e.g. one coeliac, one vegetarian" style="width:100%;font-family:Karla,sans-serif;font-size:16px;border:1px solid #D8D1BF;border-radius:2px;padding:12px 13px;background:transparent;color:#26332A;resize:vertical"></textarea>
+
+        <div style="font-weight:500;font-size:11px;letter-spacing:1.8px;text-transform:uppercase;color:#767B70;margin:26px 0 2px">Email or phone</div>
+        <input ref="{{ contactRef }}" placeholder="So we can reach you before the day" style="width:100%;font-family:Karla,sans-serif;font-size:16px;padding:12px 0;border:none;border-bottom:1px solid #D8D1BF;background:transparent;color:#26332A">
+
+        <button onClick="{{ submit }}" style="width:100%;margin-top:32px;border:1px solid #B08D3E;background-image:linear-gradient(#B08D3E,#B08D3E);color:#FFFDF8;font-family:Karla,sans-serif;font-weight:500;font-size:11.5px;letter-spacing:2.4px;text-transform:uppercase;padding:16px 32px;border-radius:2px;cursor:pointer" style-hover="background-image:none;color:#B08D3E">Send our reply</button>
+        <p style="text-align:center;color:#767B70;font-size:12.5px;margin:14px 0 0;min-height:16px">{{ summary }}</p>
+      </div>
+      </sc-if>
+
+      <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+        <div style="background-image:linear-gradient(#FFFDF8,#FFFDF8);border:1px solid #E2DCCC;border-radius:2px;padding:44px 26px;text-align:center;animation:fadeUp .7s ease both">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:34px;color:#3E5741;line-height:1">&#10003;</div>
+          <h3 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:30px;margin:14px 0 10px">Thank you</h3>
+          <p style="color:#767B70;font-size:15.5px;line-height:1.7;margin:0 auto;max-width:34ch">{{ thanksLine }}</p>
+          <button onClick="{{ edit }}" style="margin-top:26px;border:1px solid #D8D1BF;background:transparent;color:#767B70;font-family:Karla,sans-serif;font-weight:500;font-size:10.5px;letter-spacing:2.2px;text-transform:uppercase;padding:12px 26px;border-radius:2px;cursor:pointer">Change our reply</button>
+        </div>
+      </sc-if>
+    </div>
+  </section>
+
+  <section id="lineup" style="padding:74px 22px;background-image:linear-gradient(#FFFDF8,#FFFDF8);border-top:1px solid #E2DCCC;border-bottom:1px solid #E2DCCC">
+    <div style="max-width:720px;margin:0 auto">
+      <div style="font-size:10.5px;letter-spacing:3.4px;text-transform:uppercase;color:#B08D3E;font-weight:500;margin-bottom:12px">Friday, under the tipi</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,6vw,40px);margin:0 0 12px">The order of the day</h2>
+      <p style="color:#767B70;font-size:15.5px;line-height:1.7;margin:0 0 34px;max-width:52ch">A relaxed day, loosely timed. Come and go as you please, and stay as late as you like.</p>
+      <div style="display:grid;gap:2px">
+        <sc-for list="{{ schedule }}" as="s" hint-placeholder-count="9">
+          <div style="display:grid;grid-template-columns:96px 1fr;gap:20px;align-items:baseline;border-top:1px solid #E2DCCC;padding:17px 0">
+            <time style="font-size:11px;letter-spacing:1.8px;text-transform:uppercase;color:#B08D3E;font-weight:500">{{ s.time }}</time>
+            <div>
+              <b style="display:block;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:22px;line-height:1.2;margin-bottom:5px">{{ s.title }}</b>
+              <p style="color:#767B70;font-size:14.5px;line-height:1.65;margin:0;max-width:52ch;text-wrap:pretty">{{ s.note }}</p>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="travel" style="padding:74px 22px">
+    <div style="max-width:900px;margin:0 auto">
+      <div style="font-size:10.5px;letter-spacing:3.4px;text-transform:uppercase;color:#B08D3E;font-weight:500;margin-bottom:12px">Getting here</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,6vw,40px);margin:0 0 34px">Travel and where to stay</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px">
+
+        <div style="background-image:linear-gradient(#FFFDF8,#FFFDF8);border:1px solid #E2DCCC;border-radius:2px;padding:26px">
+          <h3 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:24px;margin:0 0 10px">The venue</h3>
+          <p style="color:#767B70;font-size:14.5px;line-height:1.7;margin:0 0 16px">Rylands Farmhouse, Altrincham Road, Wilmslow, SK9 4LT. Everything happens in the tipi in the grounds. <b style="color:#26332A">Sat nav warning:</b> SK9 4LT should take you to Altrincham Road, not Styal. <b style="color:#26332A">Parking is very limited</b> — please plan on a taxi or a lift.</p>
+          <a href="https://maps.google.com/?q=Rylands+Farmhouse+Altrincham+Road+Wilmslow+SK9+4LT" target="_blank" rel="noopener" style="display:inline-block;border:1px solid #D8D1BF;color:#3E5741;font-size:10.5px;letter-spacing:2.2px;text-transform:uppercase;font-weight:500;padding:11px 22px;border-radius:2px" style-hover="text-decoration:none;border-color:#B08D3E">Open in Maps</a>
+        </div>
+
+        <div style="background-image:linear-gradient(#FFFDF8,#FFFDF8);border:1px solid #E2DCCC;border-radius:2px;padding:26px">
+          <h3 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:24px;margin:0 0 10px">Where to stay</h3>
+          <p style="color:#767B70;font-size:14.5px;line-height:1.7;margin:0 0 14px">The farmhouse rooms are already spoken for. Everywhere below is minutes away. Worth booking early — April is busy.</p>
+          <div style="display:grid;gap:13px">
+            <sc-for list="{{ hotels }}" as="h" hint-placeholder-count="5">
+              <div style="border-top:1px solid #E2DCCC;padding-top:11px">
+                <b style="display:block;font-size:14.5px;font-weight:700;margin-bottom:3px">{{ h.name }}</b>
+                <span style="display:block;color:#767B70;font-size:13.5px;line-height:1.55;margin-bottom:4px">{{ h.note }}</span>
+                <a href="{{ h.tel }}" style="font-size:13.5px">{{ h.phone }}</a>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="background-image:linear-gradient(#FFFDF8,#FFFDF8);border:1px solid #E2DCCC;border-radius:2px;padding:26px">
+          <h3 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:24px;margin:0 0 10px">Taxis</h3>
+          <p style="color:#767B70;font-size:14.5px;line-height:1.7;margin:0 0 14px">Book ahead for the end of the night — everyone leaves at once. Travelling as a group? Cheshire Travel run minibuses.</p>
+          <div style="display:grid;gap:13px">
+            <sc-for list="{{ taxis }}" as="t" hint-placeholder-count="4">
+              <div style="border-top:1px solid #E2DCCC;padding-top:11px">
+                <b style="display:block;font-size:14.5px;font-weight:700;margin-bottom:3px">{{ t.name }}</b>
+                <span style="display:block;color:#767B70;font-size:13.5px;line-height:1.55;margin-bottom:4px">{{ t.note }}</span>
+                <a href="{{ t.tel }}" style="font-size:13.5px">{{ t.phone }}</a>
+              </div>
+            </sc-for>
+          </div>
+          <p style="color:#767B70;font-size:13px;line-height:1.6;margin:16px 0 0">Manchester Airport is five miles away, about ten minutes.</p>
+        </div>
+
+        <div style="background-image:linear-gradient(#FFFDF8,#FFFDF8);border:1px solid #E2DCCC;border-radius:2px;padding:26px">
+          <h3 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:24px;margin:0 0 10px">The food</h3>
+          <p style="color:#767B70;font-size:14.5px;line-height:1.7;margin:0">BBQ sharing platters of slow-cooked meats after the ceremony, brought out on boards for each table. The wood-fired pizza oven comes on outside later. There's nothing to choose — just tell us your dietary requirements when you reply.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gifts" style="padding:74px 22px;text-align:center;background-image:linear-gradient(#F1ECDF,#F1ECDF);border-top:1px solid #E2DCCC">
+    <div style="max-width:560px;margin:0 auto">
+      <div style="font-size:10.5px;letter-spacing:3.4px;text-transform:uppercase;color:#B08D3E;font-weight:500;margin-bottom:12px">If you were wondering</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,6vw,40px);margin:0 0 20px">Gifts</h2>
+      <div style="width:44px;height:1px;background:#B08D3E;margin:0 auto 22px"></div>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(19px,3.4vw,23px);line-height:1.55;margin:0 auto;max-width:34ch;text-wrap:pretty">We've got a kettle and a toaster. What we haven't got is a honeymoon.</p>
+      <p style="color:#767B70;font-size:15px;line-height:1.7;margin:18px auto 0;max-width:40ch">Contributions very welcome — there'll be a card box on the day.</p>
+    </div>
+  </section>
+
+  <section id="faq" style="padding:74px 22px;background-image:linear-gradient(#FFFDF8,#FFFDF8);border-top:1px solid #E2DCCC;border-bottom:1px solid #E2DCCC">
+    <div style="max-width:720px;margin:0 auto">
+      <div style="font-size:10.5px;letter-spacing:3.4px;text-transform:uppercase;color:#B08D3E;font-weight:500;margin-bottom:12px">Good to know</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,6vw,40px);margin:0 0 26px">Questions</h2>
+      <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="5">
+        <details style="border-top:1px solid #E2DCCC;padding:16px 0">
+          <summary style="cursor:pointer;list-style:none;font-family:'Cormorant Garamond',serif;font-size:22px;line-height:1.3">{{ f.q }}</summary>
+          <p style="color:#767B70;font-size:14.5px;line-height:1.7;margin:10px 0 0;max-width:56ch;text-wrap:pretty">{{ f.a }}</p>
+        </details>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="photos" style="padding:74px 22px;text-align:center">
+    <div style="max-width:560px;margin:0 auto">
+      <div style="font-size:10.5px;letter-spacing:3.4px;text-transform:uppercase;color:#B08D3E;font-weight:500;margin-bottom:12px">On the day, and after</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,6vw,40px);margin:0 0 14px">Photographs</h2>
+      <sc-if value="{{ hasAlbum }}" hint-placeholder-val="{{ false }}">
+        <div>
+          <p style="color:#767B70;font-size:15.5px;line-height:1.7;margin:0 auto 28px;max-width:46ch">We'd love yours. Scan the code on the tables, or tap below, and add them straight to our shared album. No account needed.</p>
+          <a href="{{ albumUrl }}" target="_blank" rel="noopener" style="display:inline-block;border:1px solid #3E5741;background-image:linear-gradient(#3E5741,#3E5741);color:#FFFDF8;font-weight:500;font-size:11.5px;letter-spacing:2.4px;text-transform:uppercase;padding:16px 38px;border-radius:2px" style-hover="text-decoration:none;background-image:none;color:#3E5741">Add your photos</a>
+        </div>
+      </sc-if>
+      <sc-if value="{{ noAlbum }}" hint-placeholder-val="{{ true }}">
+        <p style="color:#767B70;font-size:15.5px;line-height:1.7;margin:0 auto;max-width:46ch">We'd love yours. We're setting up a shared album for the day — the link and a code for the tables will appear here.</p>
+      </sc-if>
+      <div style="margin-top:34px;display:flex;justify-content:center">
+        <sc-if value="{{ hasAlbum }}" hint-placeholder-val="{{ false }}">
+          <div style="background-image:linear-gradient(#FFFDF8,#FFFDF8);border:1px solid #E2DCCC;border-radius:2px;padding:22px">
+            <canvas ref="{{ qrRef }}" width="200" height="200" style="display:block;width:180px;height:180px;image-rendering:pixelated"></canvas>
+            <p style="color:#767B70;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin:14px 0 0">Scan to add photos</p>
+          </div>
+        </sc-if>
+        <sc-if value="{{ noAlbum }}" hint-placeholder-val="{{ true }}">
+          <div style="border:1px dashed #C9C1AB;border-radius:2px;padding:30px 26px;max-width:320px;background-image:linear-gradient(#F1ECDF,#F1ECDF)">
+            <p style="color:#767B70;font-size:13.5px;line-height:1.65;margin:0">Add your shared album link in the settings and a scannable QR code appears here, ready for the table cards.</p>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+  <footer style="text-align:center;padding:54px 22px 64px;border-top:1px solid #E2DCCC;background-image:linear-gradient(#F1ECDF,#F1ECDF)">
+    <p style="font-family:'Cormorant Garamond',serif;font-size:20px;letter-spacing:3px;margin:0 0 12px">S &amp; K</p>
+    <p style="color:#767B70;font-size:13.5px;line-height:1.7;margin:0">Rylands Farmhouse, Wilmslow, Cheshire.<br>Any questions, message us on <a href="tel:07912563429">07912 563429</a>.</p>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showFilm&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behaviour&quot;},&quot;showCountdown&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behaviour&quot;},&quot;formEndpoint&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Setup&quot;},&quot;photoAlbumUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Setup&quot;}}">
+class Component extends DCLogic {
+  constructor(p){
+    super(p);
+    const guestList = [
+      { code:'the-smiths', greeting:'The Smith family', guests:['Alex Smith','Jamie Smith','Rosie Smith'] },
+      { code:'ahmed', greeting:'Sam & Priya', guests:['Sam Ahmed','Priya Ahmed'] },
+      { code:'nan', greeting:'Nan', guests:['Margaret Doyle'] }
+    ];
+    let hit = null;
+    try {
+      const c = new URLSearchParams(location.search).get('i');
+      if (c) hit = guestList.find(h => h.code === c.toLowerCase().trim()) || null;
+    } catch(e){}
+    this.guestList = guestList;
+    this.household = hit;
+    this.namesRef = React.createRef();
+    this.dietRef = React.createRef();
+    this.contactRef = React.createRef();
+    this.qrRef = React.createRef();
+    this.state = { filmOn: p.showFilm !== false, answers:{}, sent:false, error:'', now:Date.now() };
+  }
+
+  componentDidMount(){
+    this.onFilmDone = () => this.enter();
+    window.addEventListener('filmdone', this.onFilmDone);
+    if (!this.state.filmOn) this.enter();
+    this.drawQR();
+  }
+  componentDidUpdate(prev){
+    if (prev.photoAlbumUrl !== this.props.photoAlbumUrl || !this.qrDrawn) this.drawQR();
+  }
+  componentWillUnmount(){
+    window.removeEventListener('filmdone', this.onFilmDone);
+    clearInterval(this.tick);
+  }
+
+  enter(){
+    if (this.state.filmOn) this.setState({ filmOn:false });
+    clearInterval(this.tick);
+    this.tick = setInterval(() => this.setState({ now: Date.now() }), 1000);
+  }
+
+  async drawQR(){
+    const url = this.props.photoAlbumUrl;
+    const cv = this.qrRef.current;
+    if (!url || !cv) return;
+    try {
+      const mod = await import('./qr.js');
+      mod.drawQR(cv, url, { size: 240, dark:'#26332A', light:'#FFFDF8' });
+      this.qrDrawn = true;
+    } catch(e){ console.warn('QR could not be generated:', e); }
+  }
+
+  confetti(){
+    const cv = document.createElement('canvas');
+    Object.assign(cv.style,{position:'fixed',inset:'0',width:'100%',height:'100%',pointerEvents:'none',zIndex:'200'});
+    cv.width = innerWidth; cv.height = innerHeight;
+    document.body.appendChild(cv);
+    const ctx = cv.getContext('2d');
+    const cols = ['#B08D3E','#3E5741','#A8BC8C','#F2E3E5','#E8C8A8'];
+    const bits = Array.from({length:150}, () => ({
+      x: cv.width*(.2+Math.random()*.6), y: cv.height*.42+Math.random()*40,
+      vx:(Math.random()-.5)*11, vy:-(7+Math.random()*11),
+      w:4+Math.random()*6, h:6+Math.random()*8, r:Math.random()*6.3, vr:(Math.random()-.5)*.3,
+      c:cols[(Math.random()*cols.length)|0]
+    }));
+    const t0 = performance.now();
+    const step = t => {
+      const life = t - t0;
+      ctx.clearRect(0,0,cv.width,cv.height);
+      bits.forEach(b => {
+        b.vy += .32; b.x += b.vx; b.y += b.vy; b.r += b.vr; b.vx *= .995;
+        ctx.save(); ctx.translate(b.x,b.y); ctx.rotate(b.r);
+        ctx.globalAlpha = Math.max(0, 1 - life/3600);
+        ctx.fillStyle = b.c; ctx.fillRect(-b.w/2,-b.h/2,b.w,b.h); ctx.restore();
+      });
+      if (life < 3600) requestAnimationFrame(step); else cv.remove();
+    };
+    requestAnimationFrame(step);
+  }
+
+  async send(payload){
+    const url = this.props.formEndpoint;
+    if (!url) { console.warn('No formEndpoint set — reply not sent.', payload); return false; }
+    try {
+      const r = await fetch(url, { method:'POST', headers:{'Content-Type':'application/json',Accept:'application/json'}, body: JSON.stringify(payload) });
+      return r.ok;
+    } catch(e){ return false; }
+  }
+
+  renderVals(){
+    const h = this.household;
+    const names = h ? h.guests : [];
+    const a = this.state.answers;
+    const set = (n,v) => this.setState(s => ({ answers:{...s.answers,[n]:v}, error:'' }));
+    const base = {border:'1px solid #D8D1BF',background:'transparent',color:'#767B70',fontFamily:'Karla,sans-serif',fontWeight:500,fontSize:'11px',letterSpacing:'1.8px',textTransform:'uppercase',padding:'11px 20px',borderRadius:'2px',cursor:'pointer',transition:'all .18s'};
+    const on = c => ({...base, backgroundImage:'linear-gradient('+c+','+c+')', borderColor:c, color:'#FFFDF8'});
+    const people = names.map(name => ({
+      name,
+      yes:() => set(name,'yes'), no:() => set(name,'no'),
+      yesStyle: a[name]==='yes' ? on('#3E5741') : base,
+      noStyle:  a[name]==='no'  ? on('#26332A') : base
+    }));
+
+    const answered = h ? names.filter(n => a[n]).length : (a._solo ? 1 : 0);
+    const total = h ? names.length : 1;
+    const yesCount = h ? names.filter(n => a[n]==='yes').length : (a._solo==='yes' ? 1 : 0);
+
+    const target = new Date('2027-04-09T12:00:00').getTime();
+    const diff = Math.max(0, target - this.state.now);
+    const countdown = [
+      { label:'days',  n: Math.floor(diff/864e5) },
+      { label:'hours', n: Math.floor(diff/36e5)%24 },
+      { label:'mins',  n: Math.floor(diff/6e4)%60 },
+      { label:'secs',  n: Math.floor(diff/1e3)%60 }
+    ];
+
+    const submit = async () => {
+      if (answered < total) { this.setState({ error:'Please answer for everyone above.' }); return; }
+      if (!h && !(this.namesRef.current && this.namesRef.current.value.trim())) { this.setState({ error:'Please add your name.' }); return; }
+      const ok = await this.send({
+        household: h ? h.greeting : (this.namesRef.current ? this.namesRef.current.value.trim() : ''),
+        attending: h ? names.map(n => n + ': ' + (a[n]||'—')).join(', ') : a._solo,
+        headcount: yesCount,
+        dietary: this.dietRef.current ? this.dietRef.current.value.trim() : '',
+        contact: this.contactRef.current ? this.contactRef.current.value.trim() : ''
+      });
+      if (!ok) { this.setState({ error:"That didn't send — please try again, or text us." }); return; }
+      this.setState({ sent:true, error:'' });
+      if (yesCount > 0) setTimeout(() => this.confetti(), 220);
+    };
+
+    const thanks = yesCount > 0
+      ? 'We have you down for ' + yesCount + (yesCount===1 ? ' place' : ' places') + '. We cannot wait to see you in April.'
+      : "We're sorry to miss you — thank you for letting us know.";
+
+    return {
+      filmOn: this.state.filmOn,
+      enterSite: () => this.enter(),
+      replay: () => {
+        clearInterval(this.tick);
+        try { scrollTo(0,0); } catch(e){}
+        this.setState({ filmOn:true });
+      },
+      greeting: h ? h.greeting : '',
+      rsvpHeading: h ? h.greeting : 'Will you be there?',
+      showCountdown: this.props.showCountdown !== false,
+      countdown, people, noInvite: !h, hasInvite: !!h,
+      soloYes: () => set('_solo','yes'), soloNo: () => set('_solo','no'),
+      soloYesStyle: a._solo==='yes' ? on('#3E5741') : base,
+      soloNoStyle: a._solo==='no' ? on('#26332A') : base,
+      hasAlbum: !!this.props.photoAlbumUrl, noAlbum: !this.props.photoAlbumUrl,
+      namesRef: this.namesRef, dietRef: this.dietRef, contactRef: this.contactRef, qrRef: this.qrRef,
+      submit, sent: this.state.sent, notSent: !this.state.sent,
+      edit: () => this.setState({ sent:false }),
+      thanksLine: thanks,
+      albumUrl: this.props.photoAlbumUrl || '#',
+      summary: this.state.error ? this.state.error
+        : (answered < total ? 'Answer for everyone above' : (yesCount ? yesCount + ' of you joining us' : 'Sorry to miss you')),
+      schedule: [
+        {time:'11:30am', title:'Guests arrive', note:'Doors open from half eleven. It is a short window before we start, so please do not cut it fine.'},
+        {time:'12:00pm', title:'The ceremony', note:'In the tipi. Doors close just before, so do not be late.'},
+        {time:'12:40pm', title:'Drinks and photographs', note:'Time in the grounds while the formal photographs are taken.'},
+        {time:'2:00pm',  title:'The wedding meal', note:'BBQ sharing platters, brought out on boards for each table.'},
+        {time:'5:00pm',  title:'Speeches', note:'A few words, and a toast.'},
+        {time:'6:30pm',  title:'Evening guests arrive', note:'The tipi opens up for the evening.'},
+        {time:'7:30pm',  title:'First dance', note:'Then the floor is open.'},
+        {time:'8:30pm',  title:'The pizza oven', note:'Wood-fired, outside, served through the evening.'},
+        {time:'11:45pm', title:'Last dance and carriages', note:'Please book taxis in advance, and keep something warm to hand.'}
+      ],
+      hotels: [
+        {name:'Airport Inn Manchester', note:'Wood Lane, Wilmslow. Barely a mile, with its own car park.', phone:'01625 889988', tel:'tel:01625889988'},
+        {name:'The Stanneylands', note:'Country house hotel, about five minutes away.', phone:'01625 525225', tel:'tel:01625525225'},
+        {name:'Premier Inn Wilmslow', note:'Racecourse Road. Straightforward and good value.', phone:'0333 321 1305', tel:'tel:03333211305'},
+        {name:'The Wilmslow Lodge', note:'Alderley Road, in the middle of town.', phone:'01625 532300', tel:'tel:01625532300'},
+        {name:'Alderley Edge Hotel', note:'A smarter option, about ten minutes out.', phone:'01625 583033', tel:'tel:01625583033'}
+      ],
+      taxis: [
+        {name:'Cheshire Travel Private Hire', note:'Minibuses and cars, 24 hours. Best bet for a group.', phone:'0161 371 7171', tel:'tel:01613717171'},
+        {name:'Wilmslow Taxi', note:'Local firm, cars and minibuses.', phone:'01625 527 963', tel:'tel:01625527963'},
+        {name:'Wilmslow Taxi Company', note:'Covers Wilmslow and Alderley Edge.', phone:'07977 302 099', tel:'tel:07977302099'},
+        {name:'A A Taxis', note:'Wilmslow based, long established.', phone:'07947 717979', tel:'tel:07947717979'}
+      ],
+      faqs: [
+        {q:'Can we bring the children?', a:'As much as we love them, this one is adults only. We hope it gives you a night off.'},
+        {q:'Can I bring a plus-one?', a:'Your invitation covers everyone in your party — the names on the reply form are exactly who is included.'},
+        {q:'Is the venue accessible?', a:'The tipi and grounds are on one level; some farmhouse areas have steps. Tell us what you need when you reply and we will sort it with the venue.'},
+        {q:'Can I take photos during the ceremony?', a:'It is an unplugged ceremony, so phones away for that half hour. After that, take as many as you like.'},
+        {q:'When do I need to reply by?', a:'By 30 September 2026, so we can confirm numbers with the venue and caterers.'}
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
